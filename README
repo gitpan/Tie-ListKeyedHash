@@ -1,0 +1,22 @@
+Tie::ListKeyedHash
+
+Allows the use of array references as the keys to
+hashes. 
+
+Like this: 
+      $hash{['key','items','live']} = 'Hello!';
+
+or
+     
+      $hash{'key','items','live'} = 'Hello!';
+
+See the POD documentation for details.
+
+To install:
+
+perl Makefile.PL
+make
+make install
+
+Type 'perldoc Tie::ListKeyedHash' for the documentation
+
