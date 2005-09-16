@@ -1,0 +1,205 @@
+=head1 NAME
+
+Tie::ListKeyedHash - A system allowing the use of anonymous arrays as keys to a hash.
+
+=head1 SYNOPSIS
+
+   use Tie::ListKeyedHash;
+
+   [$X =] tie %hash,  'Tie::ListKeyedHash';
+
+
+   $hash{['key','items','live']} = 'Hello!';
+   $hash{['key','trees','grow']} = 'Goodbye!';
+
+   print $hash{['key','items','live']},"\n";
+   my (@list) =  keys %{$hash{['key']}};
+   print "@list\n";
+
+   untie %hash ;
+
+   Alternatively keys are accessible as:
+
+   $hash{'key','items','live'} = 'Hello!';
+
+   This way slows down the accesses by around 10% and cannot
+   be used for keys that conflict with the value of '$;'.
+
+   Also usable via the object interface methods 'put',
+   'get','exists','delete','clear'. The object interface
+   is about 2x as fast as the tied interface.
+
+=head1 DESCRIPTION
+
+Tie::ListKeyedHash ties a hash so that you can use a reference to an
+array as the key of the hash.
+
+=cut
+
+=head1 CHANGES
+
+ 1.01 16 Sep 2005 - Restoring POD that went missing in 1.00.
+                    Added META.yml to MANIFEST.
+
+ 1.00 15 Sep 2005 - Reorganized and clarified documentation, added build tests.
+                    Fixed bug in 'exists' support.
+
+ 0.41 09 Jun 1999 - Minor documentation changes.
+
+ 0.40 04 May 1999 - Renamed to 'Tie::ListKeyedHash' after discussion on
+                    comp.lang.perl.module and added (on the suggestion of
+                    Ilya Zakharevich, <ilya@math.ohio-state.edu>) support
+                    for using the tie hash as $hash{'key1','key2','key3'}
+                    as well as its native mode of $hash{['key1','key2','key3']}
+
+ 0.20 30 Apr 1999 - Initial public release as 'Tie::ArrayHash'
+
+=cut
+
+#######################################################################
+
+=head1 METHODS
+
+=over 4
+
+=item new;
+
+Returns the object reference for the tie.
+
+=back
+
+=cut
+
+#######################################################################
+
+=over 4
+
+=item clear;
+
+Clears the entire hash.
+
+=back
+
+=cut
+
+#######################################################################
+
+=over 4
+
+=item exists(\@key_list);
+
+Returns true of the specified hash element exists, false if it does not.
+Just as with normal hashes, intermediate elements will be created if
+they do not already exist.
+
+=back
+
+=cut
+
+#######################################################################
+
+=over 4
+
+=item get(\@key_list);
+
+Returns the contents of the object field denoted by the @key_list.
+This is a way of making arbitrary keys that act like hashes, with
+the 'hardwiring' requirements of hashes. The routine returns the
+the contents addressed by 'key1','key2','key3',...
+
+=back
+
+=cut
+
+#######################################################################
+
+=over 4
+
+=item put(\@key_list, $value);
+
+Sets $value as the contents of the object field denoted by the @key_list.
+
+This is a way of making arbitrary keys that act like hashes, without
+the 'hardwiring' requirements of hashes.
+
+=back
+
+=cut
+
+#######################################################################
+
+=over 4
+
+=item delete(\@key_list);
+
+Deletes the object field denoted by the @key_list.
+
+This is a way of making arbitrary keys that act like hashes, without
+the 'hardwiring' requirements of hashes.
+
+=back
+
+=cut
+
+#######################################################################
+
+=head1 BUGS
+
+To Be Determined.
+
+=head1 TODO
+
+Extend regression tests to 100% coverage.
+
+=head1 AUTHORS
+
+Benjamin Franz <snowhare@nihongo.org>
+
+=head1 VERSION
+
+Version 1.01 16.Sep.2005
+
+=head1 SEE ALSO
+
+perl perltie
+
+=head1 COPYRIGHT
+
+Copyright 1999-2005 Benjamin Franz, <snowhare@nihongo.org>. All Rights Reserved.
+
+=head1 LICENSE
+
+This program is free software; you can redistribute it
+and/or modify it under the same terms and conditions as
+Perl itself.
+
+This means that you can, at your option, redistribute it and/or modify it under
+either the terms the GNU Public License (GPL) version 1 or later, or under the
+Perl Artistic License.
+
+See http://dev.perl.org/licenses/
+
+=head1 DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Use of this software in any way or in any form, source or binary,
+is not allowed in any country which prohibits disclaimers of any
+implied warranties of merchantability or fitness for a particular
+purpose or any disclaimers of a similar nature.
+
+IN NO EVENT SHALL I BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT,
+SPECIAL, INCIDENTAL,  OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OF THIS SOFTWARE AND ITS DOCUMENTATION (INCLUDING, BUT NOT
+LIMITED TO, LOST PROFITS) EVEN IF I HAVE BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE
+
+This program is free software; you can redistribute it
+and/or modify it under the same terms as Perl itself.
+
+=cut
+
+1;

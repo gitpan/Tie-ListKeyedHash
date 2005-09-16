@@ -1,5 +1,8 @@
 
- 1.00 13 Sep 2005 - Reorganized and clarified documentation, added build tests.
+ 1.01 16 Sep 2005 - Restoring POD was that went missing from 1.00 upload.
+                    Added META.yml to MANIFEST.
+ 
+ 1.00 15 Sep 2005 - Reorganized and clarified documentation, added build tests.
                     Fixed bug in 'exists' support.
 
  0.41 09 Jun 1999 - Minor documentation changes.

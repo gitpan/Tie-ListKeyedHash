@@ -3,7 +3,7 @@ package Tie::ListKeyedHash;
 use strict;
 
 BEGIN {
-    $Tie::ListKeyedHash::VERSION       = "1.00";
+    $Tie::ListKeyedHash::VERSION       = "1.01";
 }
 
 my $func_table = {};
