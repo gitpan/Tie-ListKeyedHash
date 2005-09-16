@@ -1,0 +1,13 @@
+
+ 1.00 13 Sep 2005 - Reorganized and clarified documentation, added build tests.
+                    Fixed bug in 'exists' support.
+
+ 0.41 09 Jun 1999 - Minor documentation changes.
+
+ 0.40 04 May 1999 - Renamed to 'Tie::ListKeyedHash' after discussion on
+                    comp.lang.perl.module and added (on the suggestion of
+                    Ilya Zakharevich, <ilya@math.ohio-state.edu>) support
+                    for using the tie hash as $hash{'key1','key2','key3'}
+                    as well as its native mode of $hash{['key1','key2','key3']}
+
+ 0.20 30 Apr 1999 - Initial public release as 'Tie::ArrayHash'

@@ -1,4 +1,12 @@
 MANIFEST
 Makefile.PL
+Build.PL
 README
+Changes
+LICENSE
+GPL_License.txt
+Artistic_License.txt
 lib/Tie/ListKeyedHash.pm
+t/01_Tie_ListKeyedHash.t
+t/98_pod_coverage.t
+t/99_pod.t
