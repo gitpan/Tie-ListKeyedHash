@@ -1,3 +1,11 @@
+ 1.02 17 Sep 2005 - Extended tests to 100% coverage. Fixed bugs in 'exists'.
+                    Fixed returned value for undefined values and handling
+                    of setting undefined values. Miscellaneous code cleanups
+                    and streamlining. Added examples to clarify what the
+                    module actually does and why it is useful.
+
+                    Extended the 'new' method to permit the efficient importing
+                    of a pre-existing hash or hash reference.
 
  1.01 16 Sep 2005 - Restoring POD was that went missing from 1.00 upload.
                     Added META.yml to MANIFEST.
